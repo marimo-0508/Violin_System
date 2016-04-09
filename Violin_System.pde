@@ -1,4 +1,5 @@
 //修正
+//確認用
 import themidibus.*; //Import the library
 import javax.sound.midi.MidiMessage; //Import the MidiMessage classes http://java.sun.com/j2se/1.5.0/docs/api/javax/sound/midi/MidiMessage.html
 import javax.sound.midi.SysexMessage;
