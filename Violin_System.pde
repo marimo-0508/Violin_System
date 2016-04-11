@@ -1,5 +1,3 @@
-//修正
-//確認用
 import themidibus.*; //Import the library
 import javax.sound.midi.MidiMessage; //Import the MidiMessage classes http://java.sun.com/j2se/1.5.0/docs/api/javax/sound/midi/MidiMessage.html
 import javax.sound.midi.SysexMessage;
@@ -42,8 +40,8 @@ ArrayList<String> pitche_bend = new ArrayList<String>();
 ArrayList<String> tab_number = new ArrayList<String>();
 float mill;//時間用
 int note_num;//弾くべき音番号
-int now_num;//今現在弾いている音
-int note_vel;//ベロシティ
+int now_num = 0;//今現在弾いている音
+int note_vel = 0;//ベロシティ
 
 //色を管理する用
 Color []col = new Color[22];//色を22色の配列で管理
@@ -298,7 +296,7 @@ if (((int)(data[0] & 0xFF) >= 128)&&((int)(data[0] & 0xFF) <= 131)) {
       }
     }
   }
-  if((int)(data[0] & 0xFF) >= 0){
+  if((int)(data[0] & 0xFF) >= 0)||(abs(number - number) > 0){
     flag = true;
     if(flag == true){
     note_number.add(Integer.toString(note_num));
