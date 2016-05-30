@@ -69,8 +69,8 @@ ArrayList<ScoreNote> played_note;//pitchbendで得たどの程度ずれている
 
 void setup() {
   //画面
-  size(displayWidth, displayHeight); // 画面サイズを決定
-  //fullScreen(P2D); // 画面サイズを決定
+  //size(displayWidth, displayHeight); // 画面サイズを決定
+ fullScreen(P2D); // 画面サイズを決定
   //EyeTrive
   // e = new EyeTribe(this);
   // point = new PVector();

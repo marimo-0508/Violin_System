@@ -32,8 +32,8 @@ public int getY() {
   //	text("mouseX:"+mouseX, 40,40, 90,60);
   //	text("mouseY:"+mouseY, 40,60, 90,60);
   	text("True Position Learning", 80, 955);
-    text("Ambiguous Position Learning", 270, 955);
-    text("false Position Learning", 480, 955);
+    text("Vague Position Learning", 270, 955);
+    text("False Position Learning", 480, 955);
 
     if(number == 0){//tab_trueがマウスクリックされた時
   	fill(255);
