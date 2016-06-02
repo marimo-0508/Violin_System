@@ -79,9 +79,9 @@ class ScoreNote {
   void blue_triangle() {//水色▼の位置と形を管理  
     noStroke();
     fill(186, 233, 255);
-    textSize(25);
-    text("▼", x-20, 67+212*note_y, 40, 40);
-    text("▼", 210, 38, 40, 40);
+    textSize(13);
+    text("▼", x-5, 47+212*note_y, 40, 40);
+    text("▼", 170, 38, 40, 40);
   }
 
   void real_time_color() {//リアルタイムで変化する音の色を表示
@@ -167,12 +167,12 @@ class ScoreNote {
       }
     }
     score_top = score_top - moving;
-    image(part_score, score_top, 50, 9118, 148);//移動する楽譜の第1連
+    image(part_score, score_top, 50, 7393, 120);//移動する楽譜の第1連
     noStroke();
     fill(0);
     rect(0, 40, 70, 218);
     rect(700, 40, displayWidth-700, 218);
     image(left_grad, 70, 40, 88, 178); //グラデーション左を配置
-    image(right_grad, 700, 40, 88, 178);//グラデーション右を配置
+    image(right_grad, 505, 40, 100, 178);//グラデーション右を配置
   }
 }

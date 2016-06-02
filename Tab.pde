@@ -18,11 +18,11 @@ public int getY() {
   void tab_color(){ //マウスが触れたところに色をつける
     stroke(255);
     fill(0);
-    rect(x, y, 200, 60); 
-    if( ((x <= mouseX)&&(mouseX < x+200)) && ((y <= mouseY)&&(mouseY <= y+60)) )
+    rect(x, y, 150, 60); 
+    if( ((x <= mouseX)&&(mouseX < x+150)) && ((y <= mouseY)&&(mouseY <= y+60)) )
     {
     fill(105, 105, 105);//マウスが触れた場合，色を灰色にする
-    rect(x, y, 200, 60); 
+    rect(x, y, 150, 60); 
     }
   }
 
@@ -31,9 +31,9 @@ public int getY() {
     textSize(12);
   //	text("mouseX:"+mouseX, 40,40, 90,60);
   //	text("mouseY:"+mouseY, 40,60, 90,60);
-  	text("True Position Learning", 80, 955);
-    text("Vague Position Learning", 270, 955);
-    text("False Position Learning", 480, 955);
+  	text("True Position Learning", 60,550);
+    text("Vague Position Learning", 210, 550);
+    text("False Position Learning", 360, 550);
 
     if(number == 0){//tab_trueがマウスクリックされた時
   	fill(255);
@@ -57,7 +57,7 @@ public int getY() {
 
   void mousePressed() {
   for(int i = 0; i < 3 ;i++){
-  	if((mousePressed)&&( (( 50+ 200*i <= mouseX)&&(mouseX < 50+200*i+200)) && ((920 <= mouseY)&&(mouseY <= 980)) ))
+  	if((mousePressed)&&( (( 50+ 150<= mouseX)&&(mouseX < 50+150*i+200)) && ((520 <= mouseY)&&(mouseY <= 580)) ))
   	number = i;
   }
 }

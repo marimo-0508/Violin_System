@@ -1,21 +1,8 @@
-//修正
-//確認用
 import themidibus.*; //Import the library
 import javax.sound.midi.MidiMessage; //Import the MidiMessage classes http://java.sun.com/j2se/1.5.0/docs/api/javax/sound/midi/MidiMessage.html
 import javax.sound.midi.SysexMessage;
 import javax.sound.midi.ShortMessage;
 import processing.video.*;  //ビデオライブラリをインポート
-//----------------EyeTrive用----------------
-//import org.jorgecardoso.processing.eyetribe.*;
-//import com.theeyetribe.client.request.*;
-//import com.theeyetribe.client.reply.*;
-//import com.theeyetribe.client.data.*;
-//import com.theeyetribe.client.*;
-
-//----------------EyeTrive用----------------
-//EyeTribe e;
-//float gazex,gazey;
-//PVector point;
 
 //画像用変数
 PImage all_score, part_score, left_grad, right_grad, positioning; //全体楽譜, 楽譜の一部, 左用グラデーション, 右用グラデーション
@@ -68,12 +55,7 @@ int second_byte = 80; // But with less velocity
 ArrayList<ScoreNote> played_note;//pitchbendで得たどの程度ずれているかを入れるための配列を用意
 
 void setup() {
-  //画面
-  //size(displayWidth, displayHeight); // 画面サイズを決定
- fullScreen(P2D); // 画面サイズを決定
-  //EyeTrive
-  // e = new EyeTribe(this);
-  // point = new PVector();
+  size(1280,800); // 画面サイズを決定
 
   //midibus用
   MidiBus.list(); // List all available Midi devices on STDOUT. This will show each device's index and name.
@@ -102,41 +84,41 @@ void setup() {
   Pointer A5 = new Pointer(81, 405, 590);
 
   //note[note_y][note_x] = new Note(all_score_PositionX, ×の初期設定, NoteName);
-  note[0][0] = new ScoreNote(919, 0, A4);
-  note[0][1] = new ScoreNote(1044, 0, B4);
-  note[0][2] = new ScoreNote(1172, 0, C5);
-  note[0][3] = new ScoreNote(1299, 0, D5);
-  note[0][4] = new ScoreNote(1443, 0, E5);
-  note[0][5] = new ScoreNote(1577, 0, F5);
-  note[0][6] = new ScoreNote(1712, 0, G5);
-  note[0][7] = new ScoreNote(1846, 0, A5);
+  note[0][0] = new ScoreNote(668, 0, A4);
+  note[0][1] = new ScoreNote(744, 0, B4);
+  note[0][2] = new ScoreNote(818, 0, C5);
+  note[0][3] = new ScoreNote(892, 0, D5);
+  note[0][4] = new ScoreNote(976, 0, E5);
+  note[0][5] = new ScoreNote(1055, 0, F5);
+  note[0][6] = new ScoreNote(1132, 0, G5);
+  note[0][7] = new ScoreNote(1211, 0, A5);
 
-  note[1][0] = new ScoreNote(919, 0, A4);
-  note[1][1] = new ScoreNote(1044, 0, B4);
-  note[1][2] = new ScoreNote(1172, 0, C5);
-  note[1][3] = new ScoreNote(1299, 0, D5);
-  note[1][4] = new ScoreNote(1443, 0, E5);
-  note[1][5] = new ScoreNote(1577, 0, F5);
-  note[1][6] = new ScoreNote(1712, 0, G5);
-  note[1][7] = new ScoreNote(1846, 0, A5);
+  note[1][0] = new ScoreNote(668, 0, A4);
+  note[1][1] = new ScoreNote(744, 0, B4);
+  note[1][2] = new ScoreNote(818, 0, C5);
+  note[1][3] = new ScoreNote(892, 0, D5);
+  note[1][4] = new ScoreNote(976, 0, E5);
+  note[1][5] = new ScoreNote(1055, 0, F5);
+  note[1][6] = new ScoreNote(1132, 0, G5);
+  note[1][7] = new ScoreNote(1211, 0, A5);
 
-  note[2][0] = new ScoreNote(919, 0, A4);
-  note[2][1] = new ScoreNote(1044, 0, B4);
-  note[2][2] = new ScoreNote(1172, 0, C5);
-  note[2][3] = new ScoreNote(1299, 0, D5);
-  note[2][4] = new ScoreNote(1443, 0, E5);
-  note[2][5] = new ScoreNote(1577, 0, F5);
-  note[2][6] = new ScoreNote(1712, 0, G5);
-  note[2][7] = new ScoreNote(1846, 0, A5);
+  note[2][0] = new ScoreNote(668, 0, A4);
+  note[2][1] = new ScoreNote(744, 0, B4);
+  note[2][2] = new ScoreNote(818, 0, C5);
+  note[2][3] = new ScoreNote(892, 0, D5);
+  note[2][4] = new ScoreNote(976, 0, E5);
+  note[2][5] = new ScoreNote(1055, 0, F5);
+  note[2][6] = new ScoreNote(1132, 0, G5);
+  note[2][7] = new ScoreNote(1211, 0, A5);
 
-  note[3][0] = new ScoreNote(919, 0, A4);
-  note[3][1] = new ScoreNote(1044, 0, B4);
-  note[3][2] = new ScoreNote(1172, 0, C5);
-  note[3][3] = new ScoreNote(1299, 0, D5);
-  note[3][4] = new ScoreNote(1443, 0, E5);
-  note[3][5] = new ScoreNote(1577, 0, F5);
-  note[3][6] = new ScoreNote(1712, 0, G5);
-  note[3][7] = new ScoreNote(1846, 0, A5);
+  note[3][0] = new ScoreNote(668, 0, A4);
+  note[3][1] = new ScoreNote(744, 0, B4);
+  note[3][2] = new ScoreNote(818, 0, C5);
+  note[3][3] = new ScoreNote(892, 0, D5);
+  note[3][4] = new ScoreNote(976, 0, E5);
+  note[3][5] = new ScoreNote(1055, 0, F5);
+  note[3][6] = new ScoreNote(1132, 0, G5);
+  note[3][7] = new ScoreNote(1211, 0, A5);
 
   //col[number] = new Color(R, G, B)
   col[0] = new Color(0, 0, 255);
@@ -164,9 +146,9 @@ void setup() {
   col[21] = new Color(255, 0, 0);
 
   //tab用
-  tab_true = new Tab(50, 920);//Tabの正確ver
-  tab_ambiguous = new Tab(250, 920);//Tabの曖昧ver
-  tab_false = new Tab(450, 920);//Tabの虚偽ver
+  tab_true = new Tab(50, 520);//Tabの正確ver
+  tab_ambiguous = new Tab(200, 520);//Tabの曖昧ver
+  tab_false = new Tab(350, 520);//Tabの虚偽ver
 
   //midibusを管理
   myBus.sendNoteOn(channel, pitch, velocity); // Send a Midi noteOn
@@ -192,18 +174,8 @@ void setup() {
   }
 }
 
-//void onGazeUpdate(PVector gaze, PVector leftEye_, PVector rightEye_, GazeData data) { //EyeTrive
-// if ( gaze != null ) {
-// point = gaze.get(); 
-//}
-//result.add(note_number.get(i) + "," + now_number.get(i) + "," + pitche_bend.get(i) + "," + note_velocity.get(i) + "," + tab_number.get(i) + "," + point.x + "," + point.y + "," + count.get(i));}
-
 void draw() {
   background(0);
-
-  //eye
-  //fill(255);
-  //ellipse(point.x,point.y,5,5);
 
   //秒数をカウント
   mill = millis(); 
@@ -216,16 +188,13 @@ void draw() {
 
   //カメラ映像を回転させて、演奏者の見ているものと同じ映像にする
   pushMatrix(); 
-  translate(100, 900);
+  translate(200, 500);
   rotate(radians(-90));
-  image(video, 10, 10, 640, 540);
+  image(video, 10, 10, 320, 270);
   popMatrix();
 
-  //楽譜の表示
-  //image(part_score, 90, 50, 4559, 148);//楽譜の一段落を配置
   note[note_y][note_x].move_score();//楽譜の一段落のうち弾いている箇所のみ切り抜き
-  //image(part_score,90,50,680,148);//切り抜いた楽譜を表示
-  image(all_score, 800, 100, 1200, 741);//全体楽譜を配置
+  image(all_score, 600, 56, 700, 433);//全体楽譜を配置
 
   //楽譜の水色▼を表示
   note[note_y][note_x].blue_triangle(); 
